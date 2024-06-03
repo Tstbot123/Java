@@ -1,0 +1,16 @@
+src/
+├── Models/
+│   └── Model.java
+├── Feld/
+│   ├── Feld.java
+│   └── Spielfeld.java
+├── Units/
+│   ├── Unit.java
+│   ├── Landeinheiten.java
+│   └── Flugeinheiten.java
+├── Calculator/
+│   ├── VisionCalculator.java
+│   ├── MoveCalculator.java
+│   └── ModelConfig.java
+└── Main.java
+
