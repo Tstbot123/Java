@@ -1,9 +1,9 @@
-package Feld;
+package Field;
 
-public class Feld {
+public class Tile {
     private Type type;
 
-    public Feld(Type type) {
+    public Tile(Type type) {
         this.type = type;
     }
 

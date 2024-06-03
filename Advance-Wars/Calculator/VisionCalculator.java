@@ -1,13 +1,14 @@
 package Calculator;
 
-import Feld.Spielfeld;
+import Field.GameField;
+import Field.Tile.Type;
 import Units.Unit;
 
 public class VisionCalculator {
 
-    public static int calculateVision(Unit unit, Spielfeld spielfeld) {
+    public static int calculateVision(Unit unit, GameField gameField) {
         int baseVision = unit.baseVision;
-        Feld.Type currentType = unit.getFeldTyp(spielfeld);
+        Type currentType = unit.getFieldType(gameField);
 
         switch (currentType) {
             case MOUNTAIN:

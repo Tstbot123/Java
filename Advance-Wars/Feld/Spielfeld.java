@@ -1,27 +1,27 @@
-package Feld;
+package Field;
 
-public class Spielfeld {
-    private Feld[][] felder;
+public class GameField {
+    private Tile[][] tiles;
     private int width;
     private int height;
 
-    public Spielfeld(int width, int height) {
+    public GameField(int width, int height) {
         this.width = width;
         this.height = height;
-        felder = new Feld[width][height];
-        initializeFeld();
+        tiles = new Tile[width][height];
+        initializeTiles();
     }
 
-    private void initializeFeld() {
+    private void initializeTiles() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                felder[x][y] = new Feld(Feld.Type.PLAIN); // Default type for example
+                tiles[x][y] = new Tile(Tile.Type.PLAIN); // Default type for example
             }
         }
     }
 
-    public Feld getFeld(int x, int y) {
-        return felder[x][y];
+    public Tile getTile(int x, int y) {
+        return tiles[x][y];
     }
 
     public int getWidth() {

@@ -1,8 +1,8 @@
 package Units;
 
 import Models.Model;
-import Feld.Type;
-import Feld.Spielfeld;
+import Field.Type;
+import Field.GameField;
 
 public abstract class Unit {
     protected int cost;
@@ -39,9 +39,9 @@ public abstract class Unit {
         return new int[]{x, y};
     }
 
-    public abstract void setPosition(int x, int y, Spielfeld spielfeld);
+    public abstract void setPosition(int x, int y, GameField gameField);
 
-    public abstract Feld.Type getFeldTyp(Spielfeld spielfeld);
+    public abstract Field.Type getFieldType(GameField gameField);
 
     public int getMovementCost(Type type) {
         switch (type) {
@@ -52,7 +52,7 @@ public abstract class Unit {
             case MOUNTAIN:
                 return 3;
             case SEA:
-                return Integer.MAX_VALUE; // Einheiten, die nicht auf dem Meer fahren können, haben unendliche Kosten
+                return Integer.MAX_VALUE; // Units that cannot move on the sea have infinite cost
             default:
                 return Integer.MAX_VALUE;
         }

@@ -1,7 +1,7 @@
 package Calculator;
 
-import Feld.Spielfeld;
-import Feld.Feld.Type;
+import Field.GameField;
+import Field.Tile.Type;
 import Units.Unit;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class MoveCalculator {
 
-    public static List<int[]> calculatePossibleMoves(Unit unit, Spielfeld spielfeld) {
+    public static List<int[]> calculatePossibleMoves(Unit unit, GameField gameField) {
         List<int[]> possibleMoves = new ArrayList<>();
         int movePoints = unit.getMove();
         int startX = unit.getPosition()[0];
@@ -21,8 +21,8 @@ public class MoveCalculator {
 
         for (int x = startX - movePoints; x <= startX + movePoints; x++) {
             for (int y = startY - movePoints; y <= startY + movePoints; y++) {
-                if (x >= 0 && y >= 0 && x < spielfeld.getWidth() && y < spielfeld.getHeight()) {
-                    int cost = calculateCostToMove(unit, startX, startY, x, y, spielfeld, movementCosts);
+                if (x >= 0 && y >= 0 && x < gameField.getWidth() && y < gameField.getHeight()) {
+                    int cost = calculateCostToMove(unit, startX, startY, x, y, gameField, movementCosts);
                     if (cost <= movePoints) {
                         possibleMoves.add(new int[]{x, y});
                     }
@@ -32,7 +32,7 @@ public class MoveCalculator {
         return possibleMoves;
     }
 
-    private static int calculateCostToMove(Unit unit, int startX, int startY, int targetX, int targetY, Spielfeld spielfeld, Map<Type, Integer> movementCosts) {
+    private static int calculateCostToMove(Unit unit, int startX, int startY, int targetX, int targetY, GameField gameField, Map<Type, Integer> movementCosts) {
         int cost = 0;
         int deltaX = Math.abs(targetX - startX);
         int deltaY = Math.abs(targetY - startY);
@@ -41,7 +41,7 @@ public class MoveCalculator {
         for (int i = 0; i < steps; i++) {
             int x = startX + i * Integer.signum(targetX - startX);
             int y = startY + i * Integer.signum(targetY - startY);
-            Type terrainType = spielfeld.getFeld(x, y).getType();
+            Type terrainType = gameField.getTile(x, y).getType();
             cost += movementCosts.getOrDefault(terrainType, Integer.MAX_VALUE);
         }
         return cost;
