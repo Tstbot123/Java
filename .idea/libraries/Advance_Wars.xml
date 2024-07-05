@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Advance-Wars">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Advance-Wars" />
+      <root url="file://$PROJECT_DIR$/Java/src" />
+      <root url="file://$PROJECT_DIR$/My2DGame/src" />
+    </SOURCES>
+  </library>
+</component>

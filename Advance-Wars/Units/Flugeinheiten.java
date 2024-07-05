@@ -13,7 +13,7 @@ public class AirUnits {
         }
     }
 
-    public class Fighter extends AirUnit {
+    public static class Fighter extends AirUnit {
         public Fighter(Model model, int x, int y, GameField gameField) {
             super(20000, 9, "Missiles – 9/9", 1, "/", 0, new String[]{"Copter", "Plane"}, 2, model, x, y);
             setPosition(x, y, gameField);
@@ -32,7 +32,7 @@ public class AirUnits {
         }
     }
 
-    public class Bomber extends AirUnit {
+    public static class Bomber extends AirUnit {
         public Bomber(Model model, int x, int y, GameField gameField) {
             super(22000, 7, "Bombs – 9/9", 1, "/", 0, new String[]{"Vehicle", "Infantry"}, 2, model, x, y);
             setPosition(x, y, gameField);
