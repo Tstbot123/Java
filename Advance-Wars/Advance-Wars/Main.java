@@ -1,3 +1,8 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
 import Field.GameField;
 import Units.LandUnits.*;
 import Units.AirUnits.*;
@@ -8,8 +13,29 @@ import Calculator.VisionCalculator;
 
 import java.util.List;
 
-public class Main {
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Advance Wars");
+
+        BorderPane root = new BorderPane();
+        GameController gameController = new GameController(root);
+
+        Scene scene = new Scene(root, 800, 600);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
+        // JavaFX-Anwendung starten
+        launch(args);
+
+        // Nicht-JavaFX Code nach launch() platzieren
+        initializeGame();
+    }
+
+    private static void initializeGame() {
         // Initialize the game field
         GameField gameField = new GameField(10, 10);
 
@@ -45,4 +71,5 @@ public class Main {
         System.out.println("Vision for Infantry: " + vision);
     }
 }
+
 
